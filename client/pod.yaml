@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
   - name: client-container
-    image: client:latest
+    image: losernerd/cni_benchmark:client
     command: ["/app/client.py"]

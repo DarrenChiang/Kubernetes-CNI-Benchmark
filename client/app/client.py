@@ -4,14 +4,26 @@ import sys
 import iperf3
 from time import sleep
 
-ip = sys.argv[1]
+def get_server_info() {
+	server = {}
+	return server
+}
 
-client = iperf3.Client()
-client.server_hostname = ip
-results = []
+def test_iperf3(server, protocol, print_info) {
+	client = iperf3.Client()
+	client.server_hostname = server['hostname']
+	client.protocol = protocol
+	test = client.run()
+	if print_info:
+		print(test)
+	return test
+}
 
-for i in range(5):
-	results.append(client.run())
-	sleep(1)
+if __name__ == '__main__':
+	server = get_server_info()
+	results = []
 
-print(results)
+	while True:
+		results.append(('tcp', test_iperf3(server, 'tcp', true))
+		results.append(('udp', test_iperf3(server, 'udp', true))
+		sleep(3)
