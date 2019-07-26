@@ -4,11 +4,8 @@ COPY /app /app
 
 RUN apk --update --no-cache add bash iperf3 curl openssh-client \
     python \
-    python-dev \
     py-pip \
-    build-base \
-  && pip install virtualenv \
-  && rm -rf /var/cache/apk/* \
-  && pip install iperf3
+  && pip install iperf3 \
+  && chmod +x /app/client.py
 
 ENTRYPOINT ["/app/client.py"]
