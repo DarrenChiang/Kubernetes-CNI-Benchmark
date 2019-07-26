@@ -7,4 +7,3 @@ spec:
   - name: server-container
     image: losernerd/cni_benchmark:server
     command: ["/app/server.py"]
-

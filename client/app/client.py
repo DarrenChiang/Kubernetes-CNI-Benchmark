@@ -21,6 +21,12 @@ if __name__ == '__main__':
 	server = get_server_info()
 	results = []
 
+	if ('hostname' in server) == False:
+		while True:
+			print('temp')
+	else:
+		print('wtf')
+
 	while True:
 		results.append(('tcp', test_iperf3(server, 'tcp', True)))
 		results.append(('udp', test_iperf3(server, 'udp', True)))
