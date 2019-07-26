@@ -11,4 +11,4 @@ RUN apk --update --no-cache add bash iperf3 curl openssh-client \
   && rm -rf /var/cache/apk/* \
   && pip install iperf3
 
-#ENTRYPOINT ["/app/server.py"]
+ENTRYPOINT ["/app/server.py"]
