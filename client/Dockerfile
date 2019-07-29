@@ -2,7 +2,7 @@ FROM alpine:3.7
 
 COPY /app /app
 
-RUN apk --no-cache add bash iperf3 curl openssh-client \
+RUN apk --no-cache add iperf3 \
     python \
     py-pip \
   && pip install iperf3 \
