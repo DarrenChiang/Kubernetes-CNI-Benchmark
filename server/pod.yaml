@@ -4,6 +4,7 @@ metadata:
   name: server
   labels:
     dns: benchmark
+  namespace: default
 spec:
   containers:
   - name: server-container

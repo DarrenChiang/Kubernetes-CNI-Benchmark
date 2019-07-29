@@ -2,11 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: client
-  labels:
-    dns: benchmark
 spec:
   containers:
   - name: client-container
     image: losernerd/cni_benchmark:client
     imagePullPolicy: Always
-    command: ["/app/client.py"]
+    command: ["/app/temp.py", "benchmark"]

@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 
 import sys
+import os
 import iperf3
 from time import sleep
 
 def get_server_info():
-	server = {}
-	return server
+	return {'hostname': sys.argv[1]}
+
+def wait_for_server(server):
+	while (os.system("ping -c 1 " + server['hostname']) != 0):
+		sleep(1)
 
 def test_iperf3(server, protocol, print_info):
 	client = iperf3.Client()
@@ -19,15 +23,14 @@ def test_iperf3(server, protocol, print_info):
 
 if __name__ == '__main__':
 	server = get_server_info()
-	results = []
+	f = open('results.txt', 'w+')
 
-	if ('hostname' in server) == False:
-		while True:
-			print('temp')
-	else:
-		print('wtf')
+	for i in range(10):
+		wait_for_server(server)
+		f.write(str(test_iperf3(server, 'tcp', True)) + '\n')
+		f.write(str(test_iperf3(server, 'udp', True)) + '\n')
+
+	f.close()
 
 	while True:
-		results.append(('tcp', test_iperf3(server, 'tcp', True)))
-		results.append(('udp', test_iperf3(server, 'udp', True)))
-		sleep(3)
+		sleep(1)
