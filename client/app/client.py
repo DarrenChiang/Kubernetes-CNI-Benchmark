@@ -10,7 +10,7 @@ def get_server_info():
 
 def wait_for_server(server):
 	while (os.system("ping -c 1 " + server['hostname']) != 0):
-		sleep(1)
+		sleep(0.5)
 
 def test_iperf3(server, protocol, print_info):
 	client = iperf3.Client()
@@ -24,7 +24,7 @@ def test_iperf3(server, protocol, print_info):
 
 if __name__ == '__main__':
 	server = get_server_info()
-	f = open('results.txt', 'w+')
+	f = open('results.txt', 'a')
 	wait_for_server(server)
 
 	for i in range(10):
