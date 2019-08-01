@@ -8,3 +8,6 @@ spec:
     image: losernerd/cni_benchmark:client
     imagePullPolicy: Always
     command: ["/app/temp.py", "benchmark"]
+    envFrom:
+    - configMapRef:
+        name: bench-config

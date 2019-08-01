@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bench-config
+  namespace: default
+data:
+  hostname: benchmark
+  test_duration: "1"
