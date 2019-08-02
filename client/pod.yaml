@@ -7,7 +7,7 @@ spec:
   - name: client-container
     image: losernerd/cni_benchmark:client
     imagePullPolicy: Always
-    command: ["/app/temp.py", "benchmark"]
+    command: ["/app/temp.py"]
     envFrom:
     - configMapRef:
         name: bench-config
