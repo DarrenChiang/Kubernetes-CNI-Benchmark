@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: site
+spec:
+  containers:
+  - name: site-container
+    image: losernerd/cni_benchmark:site
+    imagePullPolicy: Always
+    command: ["/app/site.py"]
